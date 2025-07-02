@@ -105,7 +105,7 @@ def root():
     """Root endpoint with basic info"""
     return jsonify({
         'service': 'Plex2Syslog',
-        'version': '1.0.0',
+        'version': '1.0.1',
         'webhook_endpoint': '/webhook',
         'health_endpoint': '/health'
     }), 200
