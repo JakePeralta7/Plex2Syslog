@@ -1,13 +1,12 @@
 services:
   plex2syslog:
-    image: ghcr.io/jakeperalta7/plex2syslog:latest
+    build: .
     container_name: plex2syslog
     ports:
       - "8080:8080"
     environment:
       - SYSLOG_HOST=host.docker.internal
       - SYSLOG_PORT=514
-      - SYSLOG_FACILITY=LOCAL0
       - LOG_LEVEL=INFO
     restart: unless-stopped
     healthcheck:

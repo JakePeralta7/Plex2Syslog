@@ -1,33 +1,10 @@
 # Plex2Syslog
 
-A lightweight Docker container that listens for HTTP webhooks from Plex Media Server and forwards them to syslog destinations.
-
-## Features
-
-- Receives Plex webhooks via HTTP POST
-- Formats Plex events into structured syslog messages
-- Configurable syslog destination and facility
-- Health check endpoint
-- Lightweight Docker container
-- Easy deployment with Docker Compose
+Forward Plex webhooks to syslog.
 
 ## Quick Start
 
-### Using Pre-built Image (Recommended)
-
-The easiest way to get started is using the pre-built image from GitHub Container Registry:
-
-```bash
-docker run -d \
-  --name plex2syslog \
-  -p 8080:8080 \
-  -e SYSLOG_HOST=your-syslog-server \
-  -e SYSLOG_PORT=514 \
-  -e SYSLOG_FACILITY=LOCAL0 \
-  ghcr.io/your-username/plex2syslog:latest
-```
-
-### Using Docker Compose (Recommended)
+### Using Docker Compose
 
 1. Create a `docker-compose.yml` file:
 ```yaml
@@ -52,9 +29,9 @@ services:
 docker-compose up -d
 ```
 
-### Building from Source
+3. Configure Plex webhook URL: `http://your-server:8080/webhook`
 
-If you prefer to build the image yourself:
+### Building from Source
 
 1. Clone this repository:
 ```bash
