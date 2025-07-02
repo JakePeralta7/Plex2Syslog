@@ -28,8 +28,6 @@ USER plex2syslog
 EXPOSE 8080
 
 # Environment variables with defaults
-ENV HOST=0.0.0.0
-ENV PORT=8080
 ENV SYSLOG_HOST=localhost
 ENV SYSLOG_PORT=514
 ENV SYSLOG_FACILITY=LOCAL0

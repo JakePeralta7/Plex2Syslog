@@ -5,8 +5,6 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - HOST=0.0.0.0
-      - PORT=8080
       - SYSLOG_HOST=host.docker.internal
       - SYSLOG_PORT=514
       - SYSLOG_FACILITY=LOCAL0
