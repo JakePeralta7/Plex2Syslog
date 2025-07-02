@@ -10,13 +10,11 @@ Forward Plex webhooks to syslog.
 ```yaml
 services:
   plex2syslog:
-    image: ghcr.io/your-username/plex2syslog:latest
+    image: ghcr.io/JakePeralta7/plex2syslog:latest
     container_name: plex2syslog
     ports:
       - "8080:8080"
     environment:
-      - HOST=0.0.0.0
-      - PORT=8080
       - SYSLOG_HOST=your-syslog-server.local
       - SYSLOG_PORT=514
       - SYSLOG_FACILITY=LOCAL0
@@ -35,7 +33,7 @@ docker-compose up -d
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/your-username/Plex2Syslog.git
+git clone https://github.com/JakePeralta7/Plex2Syslog.git
 cd Plex2Syslog
 ```
 
@@ -57,7 +55,6 @@ docker run -d \
 Images are automatically built and published to GitHub Container Registry:
 
 - `ghcr.io/your-username/plex2syslog:latest` - Latest stable release
-- `ghcr.io/your-username/plex2syslog:main` - Latest development build
 - `ghcr.io/your-username/plex2syslog:v1.0.0` - Specific version tags
 
 ## Configuration
@@ -66,8 +63,6 @@ Configure the application using environment variables:
 
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `HOST` | Interface to bind to | `0.0.0.0` |
-| `PORT` | Port to listen on | `8080` |
 | `SYSLOG_HOST` | Syslog server hostname/IP | `localhost` |
 | `SYSLOG_PORT` | Syslog server port | `514` |
 | `SYSLOG_FACILITY` | Syslog facility | `LOCAL0` |
