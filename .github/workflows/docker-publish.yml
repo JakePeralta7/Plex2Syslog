@@ -18,10 +18,17 @@ jobs:
       contents: read
       packages: write
       id-token: write
+      # Add these additional permissions
+      actions: read
+      security-events: write
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+
+    # Convert repository name to lowercase for GHCR
+    - name: Set lowercase image name
+      run: echo "IMAGE_NAME_LOWER=${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
 
     - name: Log in to Container Registry
       if: github.event_name != 'pull_request'
@@ -35,7 +42,7 @@ jobs:
       id: meta
       uses: docker/metadata-action@v5
       with:
-        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LOWER }}
         tags: |
           type=ref,event=branch
           type=ref,event=pr
