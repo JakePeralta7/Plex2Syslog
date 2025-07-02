@@ -1,6 +1,6 @@
 # Plex2Syslog
 
-A Docker container that listens for HTTP webhooks from Plex Media Server and forwards them to syslog destinations.
+A lightweight Docker container that listens for HTTP webhooks from Plex Media Server and forwards them to syslog destinations.
 
 ## Features
 
