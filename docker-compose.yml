@@ -1,6 +1,6 @@
 services:
   plex2syslog:
-    image: ghcr.io/your-username/plex2syslog:latest
+    image: ghcr.io/jakeperalta7/plex2syslog:latest
     container_name: plex2syslog
     ports:
       - "8080:8080"
